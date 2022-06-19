@@ -1,0 +1,13 @@
+const schedule = require('node-schedule');
+
+const start = ({jobHandel, nameJob, cron}) => {
+    schedule.scheduleJob(nameJob, cron, async () => {
+        console.log('Run job', nameJob);
+        await jobHandel()
+        console.log('finish job', nameJob);
+    });
+}
+
+module.exports = {
+    start
+}
