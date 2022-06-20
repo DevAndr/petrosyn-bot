@@ -23,7 +23,7 @@ app.listen(port, () => {
          bot.telegram.sendMessage(id, "Петроясн dance👍\nhttps://www.youtube.com/watch?v=ld87aAdGIvc")
         }
         
-    }, cron:'0 20 * * *', nameJob: 'bot-petrosyn'})
+    }, cron:'*/5 * * * *', nameJob: 'bot-petrosyn'})
 
   console.log(`Example app listening on port ${port}`)
 })
