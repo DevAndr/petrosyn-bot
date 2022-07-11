@@ -5,12 +5,14 @@ const SheduleService = require('./services/SheduleService')
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3030
  
 const chatIds = [-376994152, -1001309901017]
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
-  res.send('petrosyn bot OK!')
+  res.json({status: 'petrosyn bot OK!'})
 })
 
 
@@ -19,10 +21,11 @@ app.listen(port, () => {
 
     SheduleService.start({jobHandel: () => {
         for (const id of chatIds) {
-         bot.telegram.sendMessage(id, "Петроясн dance👍\nhttps://www.youtube.com/watch?v=ld87aAdGIvc")
+        //  bot.telegram.sendMessage(id, "Петроясн dance👍\nhttps://www.youtube.com/watch?v=ld87aAdGIvc")
+         bot.telegram.sendMessage(id, "@Suigin САМ ТЫ ХУЙ")
         }
         
-    }, cron:'0 20 * * *', nameJob: 'bot-petrosyn'})
+    }, cron:'* * * * *', nameJob: 'bot-petrosyn'})
 
   console.log(`Example app listening on port ${port}`)
 })
