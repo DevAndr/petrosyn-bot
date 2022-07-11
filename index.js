@@ -16,14 +16,20 @@ app.get('/', (req, res) => {
 })
 
 
+const sendMsgToChannels = () => {
+  for (const id of chatIds) {
+    bot.telegram.sendMessage(id, "🎰Петроясн dance👍\nhttps://www.youtube.com/watch?v=ld87aAdGIvc")
+   }
+}
+
+
 app.listen(port, () => {
     bot.launch()
 
+    sendMsgToChannels()
+
     SheduleService.start({jobHandel: () => {
-      for (const id of chatIds) {
-       bot.telegram.sendMessage(id, "Петроясн dance👍\nhttps://www.youtube.com/watch?v=ld87aAdGIvc")
-      }
-      
+      sendMsgToChannels()      
   }, cron:'0 20 * * *', nameJob: 'bot-petrosyn'})
 
   console.log(`Example app listening on port ${port}`)
