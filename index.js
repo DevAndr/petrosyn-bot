@@ -20,12 +20,11 @@ app.listen(port, () => {
     bot.launch()
 
     SheduleService.start({jobHandel: () => {
-        for (const id of chatIds) {
-        //  bot.telegram.sendMessage(id, "Петроясн dance👍\nhttps://www.youtube.com/watch?v=ld87aAdGIvc")
-         bot.telegram.sendMessage(id, "@Suigin САМ ТЫ ХУЙ")
-        }
-        
-    }, cron:'* * * * *', nameJob: 'bot-petrosyn'})
+      for (const id of chatIds) {
+       bot.telegram.sendMessage(id, "Петроясн dance👍\nhttps://www.youtube.com/watch?v=ld87aAdGIvc")
+      }
+      
+  }, cron:'0 20 * * *', nameJob: 'bot-petrosyn'})
 
   console.log(`Example app listening on port ${port}`)
 })
