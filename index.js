@@ -27,7 +27,7 @@ app.listen(port, () => {
 
     SheduleService.start({jobHandel: () => {
       sendMsgToChannels()      
-  }, cron:'0 19 * * *', nameJob: 'bot-petrosyn'})
+  }, cron:'0 8 * * *', nameJob: 'bot-petrosyn'})
 
   console.log(`Example app listening on port ${port}`)
 })
