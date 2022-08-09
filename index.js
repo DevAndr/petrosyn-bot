@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const { Telegraf } = require('telegraf')
 const SheduleService = require('./services/SheduleService')
+const data = require('./data/icons.json')
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const app = express()
@@ -13,6 +14,10 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
   res.json({status: 'petrosyn bot OK!'})
+})
+
+app.get('/icon_coins', (req, res) => {
+  res.json(data)
 })
 
 
